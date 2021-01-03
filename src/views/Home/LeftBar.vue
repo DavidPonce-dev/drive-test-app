@@ -3,7 +3,9 @@
     <table>
       <thead>
         <tr>
-          <th><img src="img/Logo.png" class="w-100" /></th>
+          <th>
+            <img :src="require('../../assets/img/Logo.png')" class="w-100" />
+          </th>
         </tr>
         <th>
           Bienvenido al sistema de ensayo teorico de la prueba de conducir para
