@@ -61,7 +61,7 @@ export default {
     login(user) {
       const cuentas = [
         {
-          nombre: "qweqweqwe",
+          nombre: "Jhon smith",
           correo: "qwe@qwe.q",
           password: "qwe"
         },

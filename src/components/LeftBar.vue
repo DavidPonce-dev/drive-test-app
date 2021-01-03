@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th>
-            <img :src="require('../../assets/img/Logo.png')" class="w-100" />
+            <img :src="require('../assets/img/Logo.png')" class="w-100" />
           </th>
         </tr>
         <th>
