@@ -7,19 +7,8 @@
             <img :src="require('../assets/img/Logo.png')" class="w-100" />
           </th>
         </tr>
-        <th>
-          Bienvenido al sistema de ensayo teorico de la prueba de conducir para
-          licencias tipo B
-        </th>
       </thead>
-      <tbody>
-        <tr>
-          <td>
-            en esta aplicacion podrás evaluar y mejorar tus conocimientos con
-            respecto a como funciona la ley de transito
-          </td>
-        </tr>
-      </tbody>
+      <slot />
     </table>
   </div>
 </template>

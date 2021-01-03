@@ -1,7 +1,20 @@
 <template>
   <div class="container-fluid row bg-warning">
     <div class="col-sm-5 col-md-4 col-lg-3">
-      <LeftBar />
+      <LeftBar>
+        <tbody>
+          <th>
+            Bienvenido al sistema de ensayo teorico de la prueba de conducir
+            licencias tipo B
+          </th>
+          <tr>
+            <td>
+              en esta aplicacion podrás evaluar y mejorar tus conocimientos con
+              respecto a como funciona la ley de transito
+            </td>
+          </tr>
+        </tbody>
+      </LeftBar>
     </div>
     <div class="col-sm">
       <h1 class="titulo">Titulo de prueba</h1>
