@@ -50,10 +50,13 @@ export default {
   },
   methods: {
     async submit() {
-      const cuenta = this.login(this.user);
-      if (cuenta == null) return;
-      await store.dispatch("fetchUser", cuenta);
-      this.$router.push({ path: "/" });
+      try {
+        const cuenta = await this.login(this.user);
+        store.dispatch("fetchUser", cuenta);
+        this.$router.push({ path: "/" });
+      } catch (err) {
+        this.error = err;
+      }
     },
     login(user) {
       const cuentas = [
@@ -68,12 +71,16 @@ export default {
           password: "asd"
         }
       ];
-      for (const cuenta of cuentas) {
-        if (user.correo === cuenta.correo && user.password === cuenta.password)
-          return cuenta;
-      }
-      this.error = "Error en usuario o contraseña";
-      return null;
+      return new Promise((res, rej) => {
+        for (const cuenta of cuentas) {
+          if (
+            user.correo === cuenta.correo &&
+            user.password === cuenta.password
+          )
+            res(cuenta);
+        }
+        rej(new Error("Porfavor, corrija correo o contraseña"));
+      });
     }
   }
 };
