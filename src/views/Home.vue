@@ -15,7 +15,7 @@
         iniciar sesion o registrarte</Card
       >
     </div>
-    <div class="col-sm-4 col-md-3 col-lg-2">
+    <div class="col-sm-4 col-md-3">
       <RightBar />
     </div>
   </div>
