@@ -1,6 +1,9 @@
 <template>
   <div class="container-fluid bg-warning row h-100">
     <div class="col-sm-8 col-md-6 mx-auto my-auto">
+      <div v-if="error != ''" class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
       <Card :titulo="'Iniciar sesion'">
         <form @submit.prevent="submit">
           <div class="mb-3">
@@ -9,12 +12,16 @@
               type="email"
               class="form-control"
               aria-describedby="emailHelp"
-              v-model="correo"
+              v-model="user.correo"
             />
           </div>
           <div class="mb-3">
             <label class="form-label">Contraseña </label>
-            <input type="password" class="form-control" v-model="password" />
+            <input
+              type="password"
+              class="form-control"
+              v-model="user.password"
+            />
           </div>
           <button type="submit" class="btn btn-success d-block ms-auto">
             Submit
@@ -26,20 +33,47 @@
 </template>
 
 <script>
+import store from "../store";
 import Card from "../components/Card.vue";
 export default {
   data() {
     return {
-      correo: "",
-      password: ""
+      user: {
+        correo: "",
+        password: ""
+      },
+      error: ""
     };
   },
   components: {
     Card
   },
   methods: {
-    submit() {
-      console.log(this.$data);
+    async submit() {
+      const cuenta = this.login(this.user);
+      if (cuenta == null) return;
+      await store.dispatch("fetchUser", cuenta);
+      this.$router.push({ path: "/" });
+    },
+    login(user) {
+      const cuentas = [
+        {
+          nombre: "qweqweqwe",
+          correo: "qwe@qwe.q",
+          password: "qwe"
+        },
+        {
+          nombre: "asdasdasd",
+          correo: "asd@asd.a",
+          password: "asd"
+        }
+      ];
+      for (const cuenta of cuentas) {
+        if (user.correo === cuenta.correo && user.password === cuenta.password)
+          return cuenta;
+      }
+      this.error = "Error en usuario o contraseña";
+      return null;
     }
   }
 };
