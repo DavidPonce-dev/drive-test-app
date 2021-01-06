@@ -31,7 +31,10 @@
       <Card
         v-else
         :titulo="`Bienvenido ${user.data.nombre}`"
-        :links="[{ texto: 'Iniciar cuestionario', to: '/prueba' }]"
+        :links="[
+          { texto: 'Iniciar cuestionario', to: '/prueba' },
+          { texto: 'Cerrar sesion', to: '/signOut' }
+        ]"
         >aqui podras iniciar una prueba de conducir</Card
       >
     </div>
