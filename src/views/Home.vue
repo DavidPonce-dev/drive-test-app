@@ -28,7 +28,12 @@
         >en este mismo podras desarrollarte como chofer. Para ello tienes que
         iniciar sesion o registrarte</Card
       >
-      <Card v-else :titulo="`Bienvenido ${user.data.nombre}`"></Card>
+      <Card
+        v-else
+        :titulo="`Bienvenido ${user.data.nombre}`"
+        :links="[{ texto: 'Iniciar cuestionario', to: '/prueba' }]"
+        >aqui podras iniciar una prueba de conducir</Card
+      >
     </div>
     <div class="col-sm-4 col-md-3">
       <RightBar />
