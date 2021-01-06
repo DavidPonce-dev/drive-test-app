@@ -33,8 +33,10 @@
 </template>
 
 <script>
-import store from "../store";
 import Card from "../components/Card.vue";
+import firebase from "firebase/app";
+import "firebase/auth";
+
 export default {
   data() {
     return {
@@ -51,36 +53,13 @@ export default {
   methods: {
     async submit() {
       try {
-        const cuenta = await this.login(this.user);
-        store.dispatch("fetchUser", cuenta);
+        await firebase
+          .auth()
+          .signInWithEmailAndPassword(this.user.correo, this.user.password);
         this.$router.push({ path: "/" });
       } catch (err) {
         this.error = err;
       }
-    },
-    login(user) {
-      const cuentas = [
-        {
-          nombre: "Jhon smith",
-          correo: "qwe@qwe.q",
-          password: "qwe"
-        },
-        {
-          nombre: "asdasdasd",
-          correo: "asd@asd.a",
-          password: "asd"
-        }
-      ];
-      return new Promise((res, rej) => {
-        for (const cuenta of cuentas) {
-          if (
-            user.correo === cuenta.correo &&
-            user.password === cuenta.password
-          )
-            res(cuenta);
-        }
-        rej(new Error("Porfavor, corrija correo o contraseña"));
-      });
     }
   }
 };
