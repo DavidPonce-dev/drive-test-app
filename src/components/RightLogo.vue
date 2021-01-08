@@ -4,7 +4,6 @@
     data-name="Layer 1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="990.32"
     viewBox="0 0 990.32 727.03"
   >
     <defs>

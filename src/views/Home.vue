@@ -39,7 +39,22 @@
       >
     </div>
     <div class="col-sm-4 col-md-3">
-      <RightBar />
+      <RightBar>
+        <div class="texto">
+          <h3>Nuestra mision</h3>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ab
+          numquam harum, fuga ratione eligendi laudantium repellendus, ad
+          distinctio dolor, maxime laborum iure. Molestias quas, in ex
+          aspernatur esse blanditiis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Voluptate ab numquam harum, fuga ratione eligendi
+          laudantium repellendus, ad distinctio dolor, maxime laborum iure.
+          Molestias quas, in ex aspernatur esse blanditiis.
+        </div>
+        <RightLogo
+          class="w-25"
+          style="position: absolute; bottom: 0; right: 0;"
+        />
+      </RightBar>
     </div>
   </div>
 </template>
@@ -48,12 +63,14 @@
 import Card from "../components/Card.vue";
 import RightBar from "../components/RightBar.vue";
 import LeftBar from "../components/LeftBar.vue";
+import RightLogo from "../components/RightLogo";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     LeftBar,
     RightBar,
+    RightLogo,
     Card
   },
   computed: {
